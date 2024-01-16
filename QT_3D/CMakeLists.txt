@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QT_3D VERSION 0.1 LANGUAGES CXX)
+project(QT_3D VERSION 0.1 LANGUAGES CXX C)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -14,11 +14,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
+add_library(QT_3D.a STATIC ${C_SOURCES})
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        ../main.h
+        ../rotate.c
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -44,6 +48,7 @@ else()
     endif()
 endif()
 
+target_link_libraries(QT_3D PRIVATE QT_3D.a)
 target_link_libraries(QT_3D PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(QT_3D PROPERTIES
