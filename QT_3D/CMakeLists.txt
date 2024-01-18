@@ -21,8 +21,8 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        ../main.h
-        ../rotate.c
+        ../Back/main.h
+        ../Back/rotate.c
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

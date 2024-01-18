@@ -1,6 +1,4 @@
 #include "main.h"
-#include <math.h>
-#include <stddef.h>
 
 points *move_right(points *A) {
   for (int i = 0; i < A->quantity; i++)
