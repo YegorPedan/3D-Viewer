@@ -3,7 +3,7 @@ OPEN = open
 FLAGS = -Wall -Werror -Wextra
 LIBRARY_FLAGS=ar rc
 BIBLIO = s21_viewer.a
-TESTPATH = Tests.c
+TESTPATH = s21_tests.c
 TAR_FILE = s21_viewer.tar
 
 SOURCES=$(wildcard Back/*.c)
