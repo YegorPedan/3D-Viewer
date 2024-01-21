@@ -56,16 +56,18 @@ typedef struct {
   int **facet_matrix;
 } facet;
 
-points *move_right(points *A);
-points *move_left(points *A);
-points *move_up(points *A);
-points *move_down(points *A);
-points *move_in(points *A);
-points *move_out(points *A);
-points *turnZ(points *A);
-points *turnX(points *A);
-points *turnY(points *A);
-points *zoomIn(points *A);
-points *zoomOut(points *A);
+void move_right(points *A);
+void move_left(points *A);
+void move_up(points *A);
+void move_down(points *A);
+void move_in(points *A);
+void move_out(points *A);
+void turnZ(points *A);
+void turnX(points *A);
+void turnY(points *A);
+void zoomIn(points *A);
+void zoomOut(points *A);
+void minmax(points *A, double *nums, size_t axis);
+void CenterAndScaleCoords(points *A);
 
 #endif // MAIN_H

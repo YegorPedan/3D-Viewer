@@ -12,7 +12,7 @@ START_TEST(Test1) {
   move_right(&A);
 
   for (size_t i = 0; i < A.quantity; i++) {
-    ck_assert_float_eq(A.coordinates[i].x, V[i].x + 1);
+    ck_assert_float_eq(A.coordinates[i].x, V[i].x + 0.1);
     ck_assert_float_eq(A.coordinates[i].y, V[i].y);
     ck_assert_float_eq(A.coordinates[i].z, V[i].z);
   }
@@ -27,7 +27,7 @@ START_TEST(Test2) {
   move_left(&A);
 
   for (size_t i = 0; i < A.quantity; i++) {
-    ck_assert_float_eq(A.coordinates[i].x, V[i].x - 1);
+    ck_assert_float_eq(A.coordinates[i].x, V[i].x - 0.1);
     ck_assert_float_eq(A.coordinates[i].y, V[i].y);
     ck_assert_float_eq(A.coordinates[i].z, V[i].z);
   }
@@ -43,7 +43,7 @@ START_TEST(Test3) {
 
   for (size_t i = 0; i < A.quantity; i++) {
     ck_assert_float_eq(A.coordinates[i].x, V[i].x);
-    ck_assert_float_eq(A.coordinates[i].y, V[i].y + 1);
+    ck_assert_float_eq(A.coordinates[i].y, V[i].y + 0.1);
     ck_assert_float_eq(A.coordinates[i].z, V[i].z);
   }
 }
@@ -58,7 +58,7 @@ START_TEST(Test4) {
 
   for (size_t i = 0; i < A.quantity; i++) {
     ck_assert_float_eq(A.coordinates[i].x, V[i].x);
-    ck_assert_float_eq(A.coordinates[i].y, V[i].y - 1);
+    ck_assert_float_eq(A.coordinates[i].y, V[i].y - 0.1);
     ck_assert_float_eq(A.coordinates[i].z, V[i].z);
   }
 }
@@ -74,7 +74,7 @@ START_TEST(Test5) {
   for (size_t i = 0; i < A.quantity; i++) {
     ck_assert_float_eq(A.coordinates[i].x, V[i].x);
     ck_assert_float_eq(A.coordinates[i].y, V[i].y);
-    ck_assert_float_eq(A.coordinates[i].z, V[i].z - 1);
+    ck_assert_float_eq(A.coordinates[i].z, V[i].z - 0.1);
   }
 }
 END_TEST
@@ -89,7 +89,7 @@ START_TEST(Test6) {
   for (size_t i = 0; i < A.quantity; i++) {
     ck_assert_float_eq(A.coordinates[i].x, V[i].x);
     ck_assert_float_eq(A.coordinates[i].y, V[i].y);
-    ck_assert_float_eq(A.coordinates[i].z, V[i].z + 1);
+    ck_assert_float_eq(A.coordinates[i].z, V[i].z + 0.1);
   }
 }
 END_TEST
@@ -102,9 +102,9 @@ START_TEST(Test7) {
   zoomIn(&A);
 
   for (size_t i = 0; i < A.quantity; i++) {
-    ck_assert_float_eq(A.coordinates[i].x, V[i].x * 1.5);
-    ck_assert_float_eq(A.coordinates[i].y, V[i].y * 1.5);
-    ck_assert_float_eq(A.coordinates[i].z, V[i].z * 1.5);
+    ck_assert_float_eq(A.coordinates[i].x, V[i].x * 1.1);
+    ck_assert_float_eq(A.coordinates[i].y, V[i].y * 1.1);
+    ck_assert_float_eq(A.coordinates[i].z, V[i].z * 1.1);
   }
 }
 END_TEST
@@ -117,9 +117,9 @@ START_TEST(Test8) {
   zoomOut(&A);
 
   for (size_t i = 0; i < A.quantity; i++) {
-    ck_assert_float_eq(A.coordinates[i].x, V[i].x / 1.5);
-    ck_assert_float_eq(A.coordinates[i].y, V[i].y / 1.5);
-    ck_assert_float_eq(A.coordinates[i].z, V[i].z / 1.5);
+    ck_assert_float_eq(A.coordinates[i].x, V[i].x / 1.1);
+    ck_assert_float_eq(A.coordinates[i].y, V[i].y / 1.1);
+    ck_assert_float_eq(A.coordinates[i].z, V[i].z / 1.1);
   }
 }
 END_TEST
