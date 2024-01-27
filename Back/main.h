@@ -7,16 +7,15 @@
  *
  * Move functions are used to move the shape along the OX, OY and OZ axes. The
  * functions take a pointer to a variable of dots type, cyclically change the
- * points by 1 and return a pointer to the same variable.
+ * points by 1.
  *
  * Turn functions are used to rotate the figure. If the rotation is along
  * the OZ axis, then X and Y points change, if OY, then XZ and if OX, then YZ.
  * The functions take a pointer to a variable of the dots type, cyclically
- * change the points by 15 degrees and return a pointer to the same variable.
+ * change the points by 15 degrees.
  *
  * The zoom functions are used to change the scale of the figure. They take a
- * pointer to a variable of the dots type, cyclically change all dots to 1.5 and
- * return a pointer to the same variable
+ * pointer to a variable of the dots type, cyclically change all dots to 1.5.
  */
 #ifndef MAIN_H
 #define MAIN_H
@@ -67,7 +66,19 @@ void turnX(points *A);
 void turnY(points *A);
 void zoomIn(points *A);
 void zoomOut(points *A);
+/*!
+ * \brief Function for finding minimal and maximal value of coordinate
+ *
+ * \param A - pointer on coordinates
+ * \param nums - pointer on result; nums[0] - min, nums[1] - max
+ * \paran axis - which axis coords; 0 - OX, 1 - OY, 2 - OZ
+ */
 void minmax(points *A, double *nums, size_t axis);
+/*!
+ * \brief Function for center our figure and scale it on 0.7
+ *
+ * \param A - pointer on coordinates
+ */
 void CenterAndScaleCoords(points *A);
 
 #endif // MAIN_H

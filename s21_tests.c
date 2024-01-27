@@ -178,6 +178,42 @@ START_TEST(Test11) {
 }
 END_TEST
 
+START_TEST(Test12) {
+
+  dot V1[] = {{10, -3, -2},  {1, -2, 3}, {-4, -5, 6}, {-7, -8, -9},
+              {10, 11, -12}, {1, 2, 3},  {-4, 5, 6},  {-7, 8, -9}};
+  points A = {8, V1};
+  double nums[2];
+
+  minmax(&A, nums, 0);
+  ck_assert_double_eq(-7, nums[0]);
+  ck_assert_double_eq(10, nums[1]);
+  minmax(&A, nums, 1);
+  ck_assert_double_eq(-8, nums[0]);
+  ck_assert_double_eq(11, nums[1]);
+  minmax(&A, nums, 2);
+  ck_assert_double_eq(-12, nums[0]);
+  ck_assert_double_eq(6, nums[1]);
+}
+END_TEST
+
+START_TEST(Test13) {
+  dot V1[] = {{10, -3, -2},  {1, -2, 3}, {-4, -5, 6}, {-7, -8, -9},
+              {10, 11, -12}, {1, 2, 3},  {-4, 5, 6},  {-7, 8, -9}};
+  points A = {8, V1};
+
+  CenterAndScaleCoords(&A);
+
+  for (size_t i = 0; i < A.quantity; i++) {
+    ck_assert_double_ge(A.coordinates[i].x, -1);
+    ck_assert_double_ge(A.coordinates[i].y, -1);
+    ck_assert_double_ge(A.coordinates[i].z, -1);
+    ck_assert_double_le(A.coordinates[i].x, 1);
+    ck_assert_double_le(A.coordinates[i].y, 1);
+    ck_assert_double_le(A.coordinates[i].z, 1);
+  }
+}
+
 int main() {
   Suite *suite = suite_create("Unit");
   TCase *tcase = tcase_create("Tests");
@@ -197,6 +233,8 @@ int main() {
   tcase_add_test(tcase, Test9);
   tcase_add_test(tcase, Test10);
   tcase_add_test(tcase, Test11);
+  tcase_add_test(tcase, Test12);
+  tcase_add_test(tcase, Test13);
 
   srunner_set_fork_status(srunner, CK_NOFORK);
   srunner_run_all(srunner, CK_VERBOSE);
